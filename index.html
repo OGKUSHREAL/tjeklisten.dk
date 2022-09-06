@@ -1,0 +1,317 @@
+<html>
+	<head>
+       <!-- <script src="nui://game/ui/jquery.js" type="text/javascript"></script> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Remove margins and padding from the list */
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  /* Style the list items */
+  ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+  
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  #myUL li a {
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+  }
+
+  /* Darker background-color on hover */
+  ul li:hover {
+    background: #ddd;
+  }
+  
+  /* When clicked on, add a background color and strike out text */
+  ul li.checked, ul li a.checked {
+    background: rgb(46, 221, 11);
+    color: #fff;
+  }
+  
+  /* Add a "checked" mark when clicked on */
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: #807b7a;
+    padding: 30px 40px;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+#totalArrived {
+    font-size: 15px;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+    top: 2vh;
+    left: 2vh;
+}
+
+#totalNotArrived {
+    font-size: 15px;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+    top: 4vh;
+    left: 2vh;
+}
+
+
+  /* Clear floats after the header */
+  .header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the input */
+  input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 70%;
+    padding: 10px;
+    float: center;
+    font-size: 16px;
+    border-radius: 1.5vh;
+}
+          </style>
+
+	</head>
+    <div id="myDIV" class="header">
+        <h1>GÆSTELISTE</h2>
+        <span id="totalArrived">ANTAL KOMMET: </span>
+        <span id="totalNotArrived">ANTAL MANGLER: </span>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Søg...">
+      </div>
+      
+      <ul id="myUL">
+        <li><a href="#"></a>Aatu Dietrich</a></li>
+        <li><a href="#">Adam Poulsen</a></li>
+        <li><a href="#">Agnete Lønborg</a></li>
+        <li><a href="#">Alba Mantoni</a></li>
+        <li><a href="#">Alberte Willumsen</a></li>
+        <li><a href="#">Alex Repstock-Romme</a></li>
+        <li><a href="#">Alexander Kirstein Brammer</a></li>
+        <li><a href="#">Alexander Mazanti-Andersen Sindberg</a></li>
+        <li><a href="#">Alexander Niall</a></li>
+        <li><a href="#">Alexandra Iuel</a></li>
+        <li><a href="#">Alfred Jørgensen</a></li>
+        <li><a href="#">Ally Tram</a></li>
+        <li><a href="#">Alma Frost</a></li>
+        <li><a href="#">Amalie Lindskou-Mouritsen</a></li>
+        <li><a href="#">Amalie Risom</a></li>
+        <li><a href="#">Amanda Tholstrup</a></li>
+        <li><a href="#">Anaia Nygaard</a></li>
+        <li><a href="#">Anastasia Pozdnyakova</a></li>
+        <li><a href="#">Andrea Camille Hjort</a></li>
+        <li><a href="#">Andrea Schweitz</a></li>
+        <li><a href="#">Anna Langelund</a></li>
+        <li><a href="#">Annasofie Møller</a></li>
+        <li><a href="#">Anne Marie Hansen</a></li>
+        <li><a href="#">Asta Bock</a></li>
+        <li><a href="#">Augusta Norup</a></li>
+        <li><a href="#">Bertram Mollerup</a></li>
+        <li><a href="#">Cæsar Ræbild</a></li>
+        <li><a href="#">Camilla Nielsen</a></li>
+        <li><a href="#">Carl-Emil Lyngby Hansen</a></li>
+        <li><a href="#">Carla Egede Eskesen</a></li>
+        <li><a href="#">Caroline Bøgh</a></li>
+        <li><a href="#">Caroline Himmer</a></li>
+        <li><a href="#">Caspar Borgersen</a></li>
+        <li><a href="#">Chanel Kongsgaard</a></li>
+        <li><a href="#">Chloe Ha</a></li>
+        <li><a href="#">Christiane Bang</a></li>
+        <li><a href="#">Clara Lykke Truelsen</a></li>
+        <li><a href="#">Clara Rigmor Hommel Dahl</a></li>
+        <li><a href="#">Cornelius Matzen</a></li>
+        <li><a href="#">Edith Sofie Sigersted-Rasmussen</a></li>
+        <li><a href="#">Eline Plas</a></li>
+        <li><a href="#">Emilia Ellegaard Christoffersen</a></li>
+        <li><a href="#">Emilia Hillmann</a></li>
+        <li><a href="#">Emilie Munch</a></li>
+        <li><a href="#">Emma Sofie Berg</a></li>
+        <li><a href="#">Emma Sylvest</a></li>
+        <li><a href="#">Filippa Brodersen</a></li>
+        <li><a href="#">Filippa Lumby Jessen</a></li>
+        <li><a href="#">Frederik Bech</a></li>
+        <li><a href="#">Frederik Billetorp</a></li>
+        <li><a href="#">Frederik Klyver Jess</a></li>
+        <li><a href="#">Frederik Sass Vorting</a></li>
+        <li><a href="#">Frederikke Mikaelsen</a></li>
+        <li><a href="#">Freya Hermione Haraldsson</a></li>
+        <li><a href="#">Frida Acosta</a></li>
+        <li><a href="#">Gry Vistisen</a></li>
+        <li><a href="#">Gustav Grenness</a></li>
+        <li><a href="#">Gustav Hjorth</a></li>
+        <li><a href="#">Harald Barfoed</a></li>
+        <li><a href="#">Helena Hinnerskov</a></li>
+        <li><a href="#">Holger Reedtz-Thott</a></li>
+        <li><a href="#">Holly Hornsleth</a></li>
+        <li><a href="#">Ian Sørensen</a></li>
+        <li><a href="#">Iben Christensen</a></li>
+        <li><a href="#">Ida Kornbech</a></li>
+        <li><a href="#">Ida Matilde Clausen</a></li>
+        <li><a href="#">Isabella Isbak</a></li>
+        <li><a href="#">Isak Lund-Sørensen</a></li>
+        <li><a href="#">Jacob Haldan</a></li>
+        <li><a href="#">Johanna Winther</a></li>
+        <li><a href="#">Josefia Dines Hermand</a></li>
+        <li><a href="#">Josephine Glistrup Svendsen</a></li>
+        <li><a href="#">Josephine Juul Westh</a></li>
+        <li><a href="#">Julia Unsgaard</a></li>
+        <li><a href="#">Julius Hassing</a></li>
+        <li><a href="#">Katharina Iuel-Brockdorff</a></li>
+        <li><a href="#">Kathrine Gernaa</a></li>
+        <li><a href="#">Kathrine Lautrup-Nielsen</a></li>
+        <li><a href="#">Katrine Bjødstrup</a></li>
+        <li><a href="#">Konrad William</a></li>
+        <li><a href="#">Krisfine Duckert</a></li>
+        <li><a href="#">Lali Bernstorff</a></li>
+        <li><a href="#">Laura Refstrup Sørensen</a></li>
+        <li><a href="#">Laura Vig</a></li>
+        <li><a href="#">Laurits Theophil Jørgensen</a></li>
+        <li><a href="#">Lea Rønnow</a></li>
+        <li><a href="#">Linnea Jørgensen</a></li>
+        <li><a href="#">Liv Jespersen</a></li>
+        <li><a href="#">Louis Brøgger Kasinsky</a></li>
+        <li><a href="#">Luc Nielsen</a></li>
+        <li><a href="#">Luna Mensal Kristensen</a></li>
+        <li><a href="#">Mads Bach</a></li>
+        <li><a href="#">Mads Boye Nielsen</a></li>
+        <li><a href="#">Mads Emil Legind-Hansen</a></li>
+        <li><a href="#">Mads Golle Høiby</a></li>
+        <li><a href="#">Magnus Ilum</a></li>
+        <li><a href="#">Magnus Lund Larsen</a></li>
+        <li><a href="#">Magnus VG</a></li>
+        <li><a href="#">Malthe Neesgaard</a></li>
+        <li><a href="#">Marco Hansen</a></li>
+        <li><a href="#">Martin Sørensen</a></li>
+        <li><a href="#">Mathias Bjerge Burmeister Melchiorsen</a></li>
+        <li><a href="#">Mathias Stidsen</a></li>
+        <li><a href="#">Mathilde Fleron</a></li>
+        <li><a href="#">Max Christian Sønderskov</a></li>
+        <li><a href="#">Melda Jajovski</a></li>
+        <li><a href="#">Mikkel Axelsson</a></li>
+        <li><a href="#">Mikkel Enevoldsen</a></li>
+        <li><a href="#">Mollie Chronberg</a></li>
+        <li><a href="#">Niels Lund</a></li>
+        <li><a href="#">Oline Benzon</a></li>
+        <li><a href="#">Oliver Stadil</a></li>
+        <li><a href="#">Olivia Qvist</a></li>
+        <li><a href="#">Olivia Van Vliet Fjeldgaard</a></li>
+        <li><a href="#">Oscar Chamero</a></li>
+        <li><a href="#">Oscar Svensson</a></li>
+        <li><a href="#">Oskar Jakobsen</a></li>
+        <li><a href="#">Oskar Rosenkrantz-Vittrup</a></li>
+        <li><a href="#">Ottilia Brendstrup</a></li>
+        <li><a href="#">Otto Wedell-Wedellsborg</a></li>
+        <li><a href="#">Peter Maack</a></li>
+        <li><a href="#">Philip Honore Lublin</a></li>
+        <li><a href="#">Philip Steenbjerge</a></li>
+        <li><a href="#">Phillip Fusager</a></li>
+        <li><a href="#">Rose-Marie Aasted</a></li>
+        <li><a href="#">Sally Bredahl Haase</a></li>
+        <li><a href="#">Sally Petersen</a></li>
+        <li><a href="#">Sander Asbjørn</a></li>
+        <li><a href="#">Sebastian Hector Mørck Gjeraa</a></li>
+        <li><a href="#">Signe-Marie Veiby</a></li>
+        <li><a href="#">Sofia Hove</a></li>
+        <li><a href="#">Sofia Thomsen</a></li>
+        <li><a href="#">Steen Nordlunde</a></li>
+        <li><a href="#">Theodor Hammering</a></li>
+        <li><a href="#">Thomas Vieth</a></li>
+        <li><a href="#">Tjalfe Green</a></li>
+        <li><a href="#">Valdemar Allerup</a></li>
+        <li><a href="#">Valdemar Pedersen</a></li>
+        <li><a href="#">Valdemar Rosendal</a></li>
+        <li><a href="#">Victor Friis</a></li>
+        <li><a href="#">Victor Lund Redin</a></li>
+        <li><a href="#">Victoria Munk</a></li>
+        <li><a href="#">Vilhelm Brockenhuus</a></li>
+        <li><a href="#">Vitus Bramsbye Hvidtfeldt</a></li>
+        <li><a href="#">Willads Mikkelsen</a></li>
+        <li><a href="#">William Sonne</a></li>
+        <li><a href="#">Zoe Elizabeth Francois Drastrup</a></li>
+      </ul>
+
+        <script>
+            function myFunction() {
+              // Declare variables
+              var input, filter, ul, li, a, i, txtValue;
+              input = document.getElementById('myInput');
+              filter = input.value.toUpperCase();
+              ul = document.getElementById("myUL");
+              li = ul.getElementsByTagName('li');
+            
+              // Loop through all list items, and hide those who don't match the search query
+              for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+                } else {
+                  li[i].style.display = "none";
+                }
+              }
+            }
+
+
+
+let TotalGuest = 149;
+
+let GuestArrived = 1;
+
+let GuestMissing = 149;
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI' & !ev.target.classList.contains('checked')){
+    document.getElementById("totalArrived").innerHTML = "ANTAL KOMMET: " + GuestArrived++;
+    document.getElementById("totalNotArrived").innerHTML = "ANTAL MANGLER:  " + GuestMissing--;
+    ev.target.classList.add('checked');
+  }
+}, false);
+            </script>
+	</body>
+</html>
