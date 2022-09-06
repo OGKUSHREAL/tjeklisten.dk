@@ -309,9 +309,10 @@ let GuestMissing = 149;
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'A' & !ev.target.classList.contains('checked')){
+  if (ev.target.tagName === 'LI' || ev.target.tagName === "A" & !$(ev.target).hasClass("checked")){
     document.getElementById("totalArrived").innerHTML = "ANTAL KOMMET: " + GuestArrived++;
     document.getElementById("totalNotArrived").innerHTML = "ANTAL MANGLER:  " + GuestMissing--;
+    ev.target.classList.add('checked');
     $(ev.target).parent().addClass("checked")
   }
 }, false);
