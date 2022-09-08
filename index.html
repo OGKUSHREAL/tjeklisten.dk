@@ -97,6 +97,7 @@
             <li><a href="#">Krisfine Duckert</a></li>
             <li><a href="#">Lali Bernstorff</a></li>
             <li><a href="#">Laura Refstrup Sørensen</a></li>
+            <li><a href="#">Laura Sofie Nørvang Jørgensen</a></li>
             <li><a href="#">Laura Vig</a></li>
             <li><a href="#">Laurits Theophil Jørgensen</a></li>
             <li><a href="#">Lea Rønnow</a></li>
@@ -164,7 +165,31 @@
         </ul>   
     </body>
 
-    <script>    
+    <script>
+
+/* Build guest list via table/database data.
+    var Guests = [
+    {'name': "WILLADS TRANBERG"},
+    {'name': "FIONA TRANBERG"},
+    {'name': "MAGNUS VG"},
+    ]
+
+    BuildGuests(Guests)
+
+    function BuildGuests(data) {
+    var table = document.getElementById("guests")
+
+    for( var i = 0; i < data.length; i++) {
+        var row = `
+        <li>
+            <a>${data[i].name}</a>
+        </li>`
+        table.innerHTML += row     
+        }
+    }
+    */
+    var total = $("#guests li").length;
+
         $("#search").keyup(function() {
             var input, filter, ul, li, a, i, txtValue;
             input = document.getElementById("search");
@@ -183,8 +208,6 @@
                 }
               }
         })
-
-        var total = $("#guests li").length;
 
         function UpdateTotals() {
             let arrived = $("#guests .checked").length;
